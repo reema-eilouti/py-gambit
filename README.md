@@ -81,10 +81,9 @@ Each team member will be set as an owner of the repository. Such that branches w
 
 **What is your Git flow?**
 
-**Will you be using a PR review workflow? If so, consider:**
-
-**How many people must review a PR? Who merges PRs? How often will you merge? How will you communicate that it’s time to merge?**
-Pull Requests will be reviewed daily, and the team leader will be responsible for merging the approved PRs at the end of that session. 
+**Will you be using a PR review workflow? If so, consider:
+How many people must review a PR? Who merges PRs? How often will you merge? How will you communicate that it’s time to merge?**
+Pull Requests will be reviewed daily in a session, and the team leader will be responsible for merging the approved PRs at the end of that session. 
 
 
 
