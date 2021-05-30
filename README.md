@@ -91,7 +91,7 @@ Based on the problem domain, time available, and strengths of each team member t
 
 - **What project management tool will be used?**
 
-We will be using a Google sheet/Microsoft To Do/Trello for managing the project, the team leader will be responsible for making sure that each feature task is being delivered on time.
+We will be using GitHub projects for managing the project, the team leader will be responsible for making sure that each feature task is being delivered on time.
 
 ## Git Process
 - **What components of your project will live on GitHub?**
