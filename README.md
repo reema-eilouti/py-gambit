@@ -88,5 +88,3 @@ Pull Requests will be reviewed daily, and the team leader will be responsible fo
 
 
 
-
-An organization will be created for the team. The project will be in one repository, each team member will be set as an owner, and will be working on a branch. Such that each feature will have its own branch. The read.me, javaScript files, the sql schema, along with the ejs and css files will be on Github, while other files, such as the .env will be on our machines. Pull Requests will be reviewed daily within a team session meeting, and the team leader will be responsible for merging the approved PRs at the end of that session. 
