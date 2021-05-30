@@ -19,7 +19,7 @@ Yahya -> Good trouble shooting skills and positive energy.
 
 Having team members with good planning, strategic thinking and organizational skills will empower our team to have an efficient project plan especially in the early stages.
 Also, having members with good analytical skills will help us define our problem domain and to visualize the parts of the solution beforehand, and to provide the best strategy to handle the problem.
-Finally, having memebers in our team with good debugging and trouble shooting skills will help us solve errors/bugs in a timely manner and contribute to better optimize the solution.
+Finally, having members in our team with good debugging and trouble shooting skills will help us solve errors/bugs in a timely manner and contribute to better optimize the solution.
 
  
 - **In which professional competencies do you each want to develop greater strength?**
@@ -28,7 +28,7 @@ We have room to improve ourselves in time and task management also in decision m
 
 - **Knowing that every person in your team needs to understand all aspects of the project, how do you plan to approach the day-to-day work?**
 
-We plan on scheduling stand up meetings daily to divide the tasks and responsibilities for each team memeber, review previous work and also discuss any challenges we face.
+We plan on scheduling stand up meetings daily to divide the tasks and responsibilities for each team member, review previous work and also discuss any challenges we face.
 
 
 
@@ -36,7 +36,7 @@ We plan on scheduling stand up meetings daily to divide the tasks and responsibi
 
 - **What will be your group’s process to resolve conflict, when it arises?**
 
-Firstly after meeting in a zoom call were all team memebers are present we will look for the branch with the issue and compare the last commit with the currnt work and decide on which parts to keep and which to remove.
+Firstly after meeting in a zoom call were all team members are present we will look for the branch with the issue and compare the last commit with the current work and decide on which parts to keep and which to remove.
 
 - **What will your team do if one person is taking over the project and not letting the other members contribute?**
 
@@ -58,7 +58,7 @@ If the conflict was not solved internally, we will escalate the conflict by reac
 
 - **What hours will you be available to communicate?***
 
-The agreed on time availability is between 9:00 am - 5:00 pm. Extra working hours will be determined upon discusion according to each member availablity.
+The agreed on time availability is between 9:00 am - 5:00 pm. Extra working hours will be determined upon discussion according to each member availability.
 
 - **What platforms will you use to communicate (ie. Slack, phone …)?**
 
@@ -96,9 +96,11 @@ We will be using GitHub projects for managing the project, the team leader will 
 ## Git Process
 - **What components of your project will live on GitHub?**
 
-All project's file will be on github, including th README file, the python files, Jupyter Notebooks.
+All project's file will be on GitHub, including the README file, the python files, Jupyter Notebooks.
 
 - **How will you share the repository with your teammates?** 
+- **How will you share the repository with your teammates? ** 
+
 
 Each team member will be set as an owner of the repository. Such that branches will be created according to features.
 
