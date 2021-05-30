@@ -1,5 +1,12 @@
 # Midterm-Project
 
+### Team Members:
+- Aseel Alzweri
+- Hamzh Suilik
+- Hisham Khalil
+- Reema Eilouti
+- Yahya Omari
+
 
 ## Cooperation Plan
 
