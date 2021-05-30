@@ -73,13 +73,20 @@ Based on the problem domain, time available, and strengths of each team member t
 We will be using a Google sheet/Microsoft To Do/Trello for managing the project, the team leader will be responsible for making sure that each feature task is being delivered on time.
 
 ## Git Process
-What components of your project will live on GitHub?
-How will you share the repository with your teammates?
-What is your Git flow?
-Will you be using a PR review workflow? If so, consider:
-How many people must review a PR?
-Who merges PRs?
-How often will you merge?
-How will you communicate that it’s time to merge?
+**What components of your project will live on GitHub?**
+All project's file will be on github, including th README file, the python files, Jupyter Notebooks.
+
+**How will you share the repository with your teammates?** 
+Each team member will be set as an owner of the repository. Such that branches will be created according to features.
+
+**What is your Git flow?**
+
+**Will you be using a PR review workflow? If so, consider:**
+
+**How many people must review a PR? Who merges PRs? How often will you merge? How will you communicate that it’s time to merge?**
+Pull Requests will be reviewed daily, and the team leader will be responsible for merging the approved PRs at the end of that session. 
+
+
+
 
 An organization will be created for the team. The project will be in one repository, each team member will be set as an owner, and will be working on a branch. Such that each feature will have its own branch. The read.me, javaScript files, the sql schema, along with the ejs and css files will be on Github, while other files, such as the .env will be on our machines. Pull Requests will be reviewed daily within a team session meeting, and the team leader will be responsible for merging the approved PRs at the end of that session. 
