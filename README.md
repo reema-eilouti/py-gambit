@@ -106,7 +106,7 @@ Each team member will be set as an owner of the repository. Such that branches w
 
 Each feature will have it's own branch, pull request will be created after work is done. 
 
-- **How many people must review a PR? Who merges PRs? How often will you merge? How will you communicate that it’s time to merge? Will you be using a PR review workflow? If so, consider: **
+- **How many people must review a PR? Who merges PRs? How often will you merge? How will you communicate that it’s time to merge? Will you be using a PR review workflow? If so, consider:**
 
 Pull Requests will be reviewed daily in a session, and the team leader will be responsible for merging the approved PRs at the end of that session. 
 
