@@ -8,6 +8,34 @@
 - Yahya Omari
 
 
+
+**Image Search Engine**
+
+    - Summary of idea.
+    An image search engine that takes in an image as input, apply search and output similar related images.
+
+    - What problem or pain point does it solve?
+    The engine solves the problem of finding similar collection of images, given one image. By using a search by meta-data approach, search by example
+    approach or hybrid approach. 
+
+    - Minimum Viable Product (MVP) definition.
+    A search engine with minimal user-friendly GUI, that takes in an image and outputs 10 related images.
+
+
+
+**Chess Board**
+
+    - Summary of idea.
+    The chess board from our previous lab, but more enhanced, where you have more than two queens, you can have your horses/castles etc.
+
+    - What problem or pain point does it solve?
+    To visually know when my rocks are under attack and be prompted.
+
+    - Minimum Viable Product (MVP) definition.
+    A chess board, holding two teams rocks, you move both rocks, the program prompts you when you are under attack.
+
+
+
 ## Cooperation Plan
 
 - **What are the key strengths of each person on the team?**
