@@ -74,6 +74,7 @@
 - Since we are building a game for the terminal without GUI or deployment on a website, this is the visual you'd expect for the user:
 
 [wireframe](https://drive.google.com/file/d/1Wu1eqBU6urUWmKyhhvIKibb_NXOFKMSi/view?usp=sharing)
+![wireframe2](https://i.ibb.co/fN2DVJJ/chess-board.png)
 
 
 ## Domain Model
