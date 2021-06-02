@@ -50,7 +50,6 @@
   After each movement a function works to determine if the king is under attack or not.
   
   **Non-Functional Requirements:** 
-  - Usability
-  - Testability
-  - Fun and mind stimulating
-  - A social game that you can play with other users
+  - Usability: design of game, should be simple, understandable and user friendly; the user shall not have hard time in dealing with it. Such that playing a game should be a         positive experience. This can be done through adopting smooth flow, and using simple language.
+  - Fun and mind stimulating: a game should be engaging and fun, because games are suposed to be fun. This can be done through the multi-player feature, 
+    which allows the user to play with other users.
