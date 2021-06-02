@@ -9,20 +9,6 @@
 
 
 
-**Image Search Engine**
-
-    - Summary of idea.
-    An image search engine that takes in an image as input, apply search and output similar related images.
-
-    - What problem or pain point does it solve?
-    The engine solves the problem of finding similar collection of images, given one image. By using a search by meta-data approach, search by example
-    approach or hybrid approach. 
-
-    - Minimum Viable Product (MVP) definition.
-    A search engine with minimal user-friendly GUI, that takes in an image and outputs 10 related images.
-
-
-
 **Chess Board**
 
     - Summary of idea.
@@ -33,6 +19,81 @@
 
     - Minimum Viable Product (MVP) definition.
     A chess board, holding two teams rocks, you move both rocks, the program prompts you when you are under attack.
+
+
+
+## User Stories
+
+**Solo Mode**
+1. as a player, i want solo play mode, so that i can play that game when no one is around
+    - Feature Tasks:
+        - player can choose what color to play with
+        - player can restart the game if wanted
+        - player can choose the bot difficulty
+    - Acceptance Tests:
+        - ensure the color the player choose is correct
+        - ensure the game is started when the player choose to restart the game
+        - ensure the difficulty the player choose is correct
+       
+**Multiplayer Mode**
+2. as a player, i want multiplayer mode, so that i can play with others
+    - Feature Tasks:
+        - players can choose to set a timer 
+        - players can choose to end the game with a draw or surrender
+    - Acceptance Tests:
+        - ensure the timer is working when players set it
+        - ensure the game is ended when the players end the game
+       
+**Available Moves**       
+3. as a player, i want to see my available moves, so that i can move a piece of mine to attck directly a piece of other player pieces
+    - Feature Tasks:
+        - player/s can require to highlight all pieces of his/her can move
+        - player/s can require to see the highlighted pieces available moves 
+    - Acceptance Tests:
+        - ensure the highlighted pieces have correct moves and available for each player when they are required
+        - ensure the available moves for the highlighted pieces are shown in the screen correctly
+
+**Under Attack**
+4. as a player, i want to know what pieces of mine under attack, so that i can move the important piece of them and avoid a direct attack from the other player
+    - Feature Tasks:
+        - player/s can require to highlight all pieces of his/her under attack
+        - player/s can require to see the highlighted pieces moves to escape
+    - Acceptance Tests:
+        - ensure the highlighted pieces are under attack for each player when they are required
+        - ensure the escape moves for the highlighted pieces are shown in the screen correctly
+
+**Chess Pieces**
+5. as a player, i want to see chess pieces moves, so that i can remember what move i can do with a specific piece 
+    - Feature Tasks:
+        - player/s can require to see the all pieces moves
+    - Acceptance Tests:
+        - ensure the moves list has correct moves and is shown clear for players when it is required
+
+
+## Wireframe
+- Since we are building a game for the terminal without GUI or deployment on a website, this is the visual you'd expect for the user:
+
+![wireframe](https://drive.google.com/file/d/1Wu1eqBU6urUWmKyhhvIKibb_NXOFKMSi/view?usp=sharing)
+
+
+## Domain Model
+
+![domain_model](https://docs.google.com/drawings/d/1Ajcw5EOW6_NK8AukF5cl1b1sTawjd3e-V1P_EEWaGbo/edit?usp=sharing)
+
+- The first method called is init, inside the chess board is built and colored black and white.
+    - init is called by creating an object of the ChessBoard class.
+    - It does not return anything (None).
+
+- The second method called is render, it is called by an object of the ChessBoard class, it will use matplotlib to draw the board and show it to the user.
+
+- The add_red and add_blue methods are responsible to assign the chess pieces to the location provided by the user as input, it colors the square on the board and then calls the method render to update the view to the user.
+
+- The main method holding most of the functionality to the user is the under_attack method. It calculates the coordinates of the pieces relating to each other and prompts the user when one of his/her pieces are being under possible attack by the other team.
+    -This method is called after every call to add_red or add_blue.
+
+
+## Database
+-
 
 
 
