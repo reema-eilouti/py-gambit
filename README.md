@@ -34,7 +34,7 @@
         - ensure the color the player choose is correct
         - ensure the game is started when the player choose to restart the game
         - ensure the difficulty the player choose is correct
-       
+
 **Multiplayer Mode**
 2. as a player, i want multiplayer mode, so that i can play with others
     - Feature Tasks:
