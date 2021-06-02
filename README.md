@@ -73,12 +73,12 @@
 ## Wireframe
 - Since we are building a game for the terminal without GUI or deployment on a website, this is the visual you'd expect for the user:
 
-![wireframe](https://drive.google.com/file/d/1Wu1eqBU6urUWmKyhhvIKibb_NXOFKMSi/view?usp=sharing)
+[wireframe](https://drive.google.com/file/d/1Wu1eqBU6urUWmKyhhvIKibb_NXOFKMSi/view?usp=sharing)
 
 
 ## Domain Model
 
-![domain_model](https://docs.google.com/drawings/d/1Ajcw5EOW6_NK8AukF5cl1b1sTawjd3e-V1P_EEWaGbo/edit?usp=sharing)
+[domain_model](https://docs.google.com/drawings/d/1Ajcw5EOW6_NK8AukF5cl1b1sTawjd3e-V1P_EEWaGbo/edit?usp=sharing)
 
 - The first method called is init, inside the chess board is built and colored black and white.
     - init is called by creating an object of the ChessBoard class.
