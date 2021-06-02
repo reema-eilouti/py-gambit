@@ -93,7 +93,9 @@
 
 
 ## Database
--
+- As for the database we calculated that our code does not need a seperate file for storage or a table for a database. 
+- For now we don't need to save user credintials or chess moves.
+- All our data are stored on local variables in the code.
 
 
 
