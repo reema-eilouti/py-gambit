@@ -97,11 +97,9 @@
 
 
 ## Database
-- As for the database we calculated that our code does not need a seperate file for storage or a table for a database. 
-- For now we don't need to save user credentials or chess moves.
-- All our data are stored on local variables in the code.
-
-
+- In our project, live – chess game, using database is not a basic requirement. However, we might set using a data base for storing players information/credentials,
+ chess moves and final score as a stretch goal.
+ -  For now, data will be stored in local variables in the code.
 
 ## Cooperation Plan
 
