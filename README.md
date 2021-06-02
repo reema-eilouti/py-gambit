@@ -25,52 +25,58 @@
 ## User Stories
 
 **Solo Mode**
-1. as a player, i want solo play mode, so that i can play that game when no one is around
+1. As a player, I want solo play mode, so that I can play that game when no one is around
     - Feature Tasks:
-        - player can choose what color to play with
-        - player can restart the game if wanted
-        - player can choose the bot difficulty
+        - Player can choose what color to play with.
+        - Player can restart the game if wanted.
+        - Player can choose the bot difficulty.
     - Acceptance Tests:
-        - ensure the color the player choose is correct
-        - ensure the game is started when the player choose to restart the game
-        - ensure the difficulty the player choose is correct
+        - Ensure the color the player choose is correct.
+        - Ensure the game is started when the player choose to restart the game.
+        - Ensure the difficulty the player choose is correct.
 
 **Multiplayer Mode**
-2. as a player, i want multiplayer mode, so that i can play with others
+
+2. As a player, I want multiplayer mode, so that I can play with others
     - Feature Tasks:
-        - players can choose to set a timer 
-        - players can choose to end the game with a draw or surrender
+        - Players can choose to set a timer.
+        - Players can choose to end the game with a draw or surrender.
     - Acceptance Tests:
-        - ensure the timer is working when players set it
-        - ensure the game is ended when the players end the game
+        - Ensure the timer is working when players set it.
+        - Ensure the game is ended when the players end the game.
        
-**Available Moves**       
-3. as a player, i want to see my available moves, so that i can move a piece of mine to attck directly a piece of other player pieces
+**Available Moves**     
+
+3. As a player, I want to see my available moves, so that I can move a piece of mine to attack directly a piece of other player pieces
+
     - Feature Tasks:
-        - player/s can require to highlight all pieces of his/her can move
-        - player/s can require to see the highlighted pieces available moves 
+        - Player/s can require to highlight all pieces of his/her can move.
+        - Player/s can require to see the highlighted pieces available moves. 
     - Acceptance Tests:
-        - ensure the highlighted pieces have correct moves and available for each player when they are required
-        - ensure the available moves for the highlighted pieces are shown in the screen correctly
+        - Ensure the highlighted pieces have correct moves and available for each player when they are required.
+        - Ensure the available moves for the highlighted pieces are shown in the screen correctly.
 
 **Under Attack**
-4. as a player, i want to know what pieces of mine under attack, so that i can move the important piece of them and avoid a direct attack from the other player
+
+4. As a player, I want to know what pieces of mine under attack, so that I can move the important piece of them and avoid a direct attack from the other player
     - Feature Tasks:
-        - player/s can require to highlight all pieces of his/her under attack
-        - player/s can require to see the highlighted pieces moves to escape
+        - Player/s can require to highlight all pieces of his/her under attack
+        - Player/s can require to see the highlighted pieces moves to escape
     - Acceptance Tests:
-        - ensure the highlighted pieces are under attack for each player when they are required
-        - ensure the escape moves for the highlighted pieces are shown in the screen correctly
+        - Ensure the highlighted pieces are under attack for each player when they are required
+        - Ensure the escape moves for the highlighted pieces are shown in the screen correctly
 
 **Chess Pieces**
-5. as a player, i want to see chess pieces moves, so that i can remember what move i can do with a specific piece 
+
+5. As a player, I want to see chess pieces moves, so that I can remember what move I can do with a specific piece 
     - Feature Tasks:
-        - player/s can require to see the all pieces moves
+        - Player/s can require to see the all pieces moves
     - Acceptance Tests:
-        - ensure the moves list has correct moves and is shown clear for players when it is required
+        - Ensure the moves list has correct moves and is shown clear for players when it is required
 
 
 ## Wireframe
+
 - Since we are building a game for the terminal without GUI or deployment on a website, this is the visual you'd expect for the user:
 ![wireframe](https://i.ibb.co/fN2DVJJ/chess-board.png)
 
@@ -92,7 +98,7 @@
 
 ## Database
 - As for the database we calculated that our code does not need a seperate file for storage or a table for a database. 
-- For now we don't need to save user credintials or chess moves.
+- For now we don't need to save user credentials or chess moves.
 - All our data are stored on local variables in the code.
 
 
