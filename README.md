@@ -89,7 +89,7 @@
 - The add_red and add_blue methods are responsible to assign the chess pieces to the location provided by the user as input, it colors the square on the board and then calls the method render to update the view to the user.
 
 - The main method holding most of the functionality to the user is the under_attack method. It calculates the coordinates of the pieces relating to each other and prompts the user when one of his/her pieces are being under possible attack by the other team.
-    -This method is called after every call to add_red or add_blue.
+    - This method is called after every call to add_red or add_blue.
 
 
 ## Database
