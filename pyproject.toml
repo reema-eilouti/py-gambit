@@ -9,6 +9,7 @@ python = "^3.9"
 ipykernel = "^5.5.5"
 jupyter = "^1.0.0"
 chess = "^1.5.0"
+jupyterlab = "^3.0.16"
 
 [tool.poetry.dev-dependencies]
 
