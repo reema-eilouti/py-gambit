@@ -1,4 +1,5 @@
 import chessboard
+from tkinter import *
 import tkinter as tk
 import chess
 from bot import bot_move
@@ -49,6 +50,9 @@ class GUI:
         self.canvas.bind("<Button-1>", self.square_clicked)
 
     def new_game(self):
+        # print('ooo')
+        # main_frame = Frame(self.parent,height=64)
+        # main_frame.tkraise()
         self.chessboard.show(chessboard.START_PATTERN)
         self.draw_board()
         self.draw_pieces()
@@ -179,16 +183,38 @@ class GUI:
 
 
 def main(chessboard):
+
     board = chess.Board()
     root = tk.Tk()
     root.title("Chess")
+
     gui = GUI(root, chessboard,board)
     gui.draw_board()
     gui.draw_pieces()
+
+
     root.mainloop()
+    
     
 
 
 if __name__ == "__main__":
     game = chessboard.Board()
-    main(game)
+    # main(game)
+
+    main_page = Tk()
+    main_page.title("main page")
+    main_page.geometry('400x300')
+
+    f1 = Frame(main_page)
+    f1.grid(row=0, column=0, sticky='news')
+    def clicked():
+        main_page.destroy()
+        main(game)
+    btn = Button(main_page, text="Click Me", command=clicked)
+    btn.grid(column=1, row=0)
+
+    main_page.mainloop()
+
+
+    
