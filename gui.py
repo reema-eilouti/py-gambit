@@ -16,7 +16,7 @@ class GUI:
     columns = 8
     dim_square = 64
 
-    def __init__(self, parent, chessboard,board):
+    def __init__(self, parent, chessboard,board,root):
         self.chessboard = chessboard
         self.parent = parent
         # /////////////////////////////////
@@ -25,22 +25,20 @@ class GUI:
         self.board = board
         self.posi1 = None
         self.posi2 = None
+        self.root = root
         # ////////////////////////////
         # Adding Top Menu
-        self.menubar = tk.Menu(parent)
+        self.menubar = tk.Menu(root)
         self.filemenu = tk.Menu(self.menubar, tearoff=0)
         self.filemenu.add_command(label="New Game", command=self.new_game)
         self.menubar.add_cascade(label="File", menu=self.filemenu)
-        self.parent.config(menu=self.menubar)
+        self.root.config(menu=self.menubar)
 
         # Adding Frame
         self.btmfrm = tk.Frame(parent, height=64)
-        self.info_label = tk.Label(self.btmfrm,
-                                text="   White to Start the Game  ",
-                                fg=self.color2)
+        self.info_label = tk.Label(self.btmfrm,text="   White to Start the Game  ",fg=self.color2)
         self.info_label.pack(side=tk.RIGHT, padx=8, pady=5)
         self.btmfrm.pack(fill="x", side=tk.BOTTOM)
-
         canvas_width = self.columns * self.dim_square
         canvas_height = self.rows * self.dim_square
         self.canvas = tk.Canvas(parent, width=canvas_width,
@@ -50,9 +48,9 @@ class GUI:
         self.canvas.bind("<Button-1>", self.square_clicked)
 
     def new_game(self):
-        # print('ooo')
-        # main_frame = Frame(self.parent,height=64)
-        # main_frame.tkraise()
+        # $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+        self.board = chess.Board()
+        # $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
         self.chessboard.show(chessboard.START_PATTERN)
         self.draw_board()
         self.draw_pieces()
@@ -102,7 +100,6 @@ class GUI:
                 self.info_label[
                     "text"] = '' + piece.color.capitalize() + "  :  " + p1 + p2 + '    ' + turn.capitalize() + '\'s turn'
                 # ////////////////////////////
-                # if self.chessboard.player_turn == "white":
                 if self.chessboard.player_turn == 'black':
                     move = p1[0].lower()
                     move += p1[1]
@@ -187,10 +184,42 @@ def main(chessboard):
     board = chess.Board()
     root = tk.Tk()
     root.title("Chess")
+    root.geometry('800x600')
+    # &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+    main_frame = Frame(root)
+    main_frame.grid(row=0, column=0, sticky="nswe")
+    chessframe = Frame(main_frame)
+    chessframe.grid(row=0, column=0, sticky="nswe")
+    right_frame = Frame(main_frame,background="bisque")
+    right_frame.grid(row=0, column=1, sticky="nswe")
 
-    gui = GUI(root, chessboard,board)
-    gui.draw_board()
-    gui.draw_pieces()
+    lbl = Label(right_frame, text="                                                                                 ")
+    lbl.grid(column=0, row=0)
+
+    def clicked():
+        gui = GUI(chessframe, chessboard,board,root)
+        gui.draw_board()
+        gui.draw_pieces()
+
+    btn = Button(right_frame, text="one player", command=clicked, bg="orange", fg="red",width=5,height=0,font=("Arial Bold", 25))
+    btn.grid(column=0, row=1)
+
+    btn_2 = Button(right_frame, text="multi player", command=clicked, bg="pink", fg="red",width=20,height=3)
+    btn_2.grid(column=0, row=2)
+
+    btn_3 = Button(right_frame, text="bt-2", command=clicked, bg="white", fg="red",width=20,height=3)
+    btn_3.grid(column=0, row=3)
+
+    btn_4 = Button(right_frame, text="bt-2", command=clicked, bg="gray", fg="red",width=20,height=3)
+    btn_4.grid(column=0, row=4)
+    chk_state = BooleanVar()
+    chk_state.set(True)
+    chk = Checkbutton(right_frame, text='Choose' ,var=chk_state)
+    chk.grid(column=0, row=5)
+ 
+    # &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+
+
 
 
     root.mainloop()
@@ -200,8 +229,7 @@ def main(chessboard):
 
 if __name__ == "__main__":
     game = chessboard.Board()
-    # main(game)
-
+    # ///////////////////////////////////////////////
     main_page = Tk()
     main_page.title("main page")
     main_page.geometry('400x300')
@@ -215,6 +243,7 @@ if __name__ == "__main__":
     btn.grid(column=1, row=0)
 
     main_page.mainloop()
+    # //////////////////////////////////////////////////////
 
 
     
