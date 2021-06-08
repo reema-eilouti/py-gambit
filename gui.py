@@ -197,23 +197,30 @@ class GUI:
         pass
 
     #//////////////////////////////////////////////////// 
-
+# //////////////////////////////
+def back_main():
+    game = chessboard.Board()
+    main(game)    
+#///////////////////////////////// 
 
 def main(chessboard):
 
     board = chess.Board()
     root = tk.Tk()
     root.title("Chess")
-    root.geometry('250x600')
+    root.geometry('250x250')
     # &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
     main_frame = Frame(root)
     main_frame.grid(row=0, column=0, sticky="nswe")
     chessframe = Frame(main_frame)
     chessframe.grid(row=0, column=0, sticky="nswe")
-    game_option_frame = Frame(main_frame,background="bisque")
-    game_option_frame.grid(row=0, column=1, sticky="nswe")
+    left_frame = Frame(main_frame,background="bisque")
+    left_frame.grid(row=0, column=1, sticky="nswe")
+    game_option_frame = Frame(left_frame)
+    game_option_frame.pack_propagate(0)
+    game_option_frame.pack(side='top', padx=0, pady=0)
     player_option_frame = Frame(main_frame,background="bisque")
-    player_option_frame.grid(row=0, column=3, sticky="nswe")
+    player_option_frame.grid(row=0, column=2, sticky="nswe")
 
     def clicked_virual():
         pass
@@ -221,13 +228,17 @@ def main(chessboard):
     def clicked_timer():
         pass
 
+    def back():
+        root.destroy()
+        back_main()
+    
     def clicked_single():
         root.geometry('800x600')
         player_mode = "single_player"
         gui = GUI(chessframe, chessboard,board,root,player_mode)
         gui.draw_board()
         gui.draw_pieces()
-        game_option_frame.destroy()
+        left_frame.destroy()
         lbl = Label(player_option_frame, text="                                                                                 ")
         lbl.grid(column=0, row=0)
         btn = Button(player_option_frame, text="restart game", command=gui.clicked_restart, bg="orange", fg="red",width=20,height=3)
@@ -236,6 +247,8 @@ def main(chessboard):
         btn_2.grid(column=0, row=2)
         btn_3 = Button(player_option_frame, text="virual mouse", command=clicked_virual, bg="white", fg="red",width=20,height=3)
         btn_3.grid(column=0, row=3)
+        btn_4 = Button(player_option_frame, text="back", command=back, bg="white", fg="red",width=20,height=3)
+        btn_4.grid(column=0, row=4)
 
     def clicked_multi():
         root.geometry('800x600')
@@ -253,17 +266,19 @@ def main(chessboard):
             tkinter.messagebox.showinfo("winner",f"the winner is {winner}")
             gui.clicked_restart()
 
-        game_option_frame.destroy()
+        left_frame.destroy()
         lbl = Label(player_option_frame, text="                                                                                 ")
         lbl.grid(column=0, row=0)
-        btn = Button(player_option_frame, text="draw", command=clicked_draw, bg="orange", fg="red",width=20,height=3)
-        btn.grid(column=0, row=1)
-        btn = Button(player_option_frame, text="show timer", command=clicked_timer, bg="orange", fg="red",width=20,height=3)
-        btn.grid(column=0, row=2)
-        btn_2 = Button(player_option_frame, text="pieces under attack", command=gui.clicked_attack, bg="pink", fg="red",width=20,height=3)
-        btn_2.grid(column=0, row=3)
-        btn_3 = Button(player_option_frame, text="virual mouse", command=clicked_virual, bg="white", fg="red",width=20,height=3)
-        btn_3.grid(column=0, row=4)
+        btn_1 = Button(player_option_frame, text="draw", command=clicked_draw, bg="orange", fg="red",width=20,height=3)
+        btn_1.grid(column=0, row=1)
+        btn_2 = Button(player_option_frame, text="show timer", command=clicked_timer, bg="orange", fg="red",width=20,height=3)
+        btn_2.grid(column=0, row=2)
+        btn_3 = Button(player_option_frame, text="pieces under attack", command=gui.clicked_attack, bg="pink", fg="red",width=20,height=3)
+        btn_3.grid(column=0, row=3)
+        btn_4 = Button(player_option_frame, text="virual mouse", command=clicked_virual, bg="white", fg="red",width=20,height=3)
+        btn_4.grid(column=0, row=4)
+        btn_5 = Button(player_option_frame, text="back", command=back, bg="white", fg="red",width=20,height=3)
+        btn_5.grid(column=0, row=5)
     
     def clicked_rules():
         pass
@@ -280,9 +295,6 @@ def main(chessboard):
     # &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
     root.mainloop()
     
-    
-
-
 if __name__ == "__main__":
     game = chessboard.Board()
     main(game)
