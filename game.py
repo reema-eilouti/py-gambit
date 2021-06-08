@@ -268,20 +268,24 @@ def is_piece_under_attack(board):
     square_number = chess.SQUARE_NAMES.index(square)
   
     square_color = board.color_at(square_number)
-   
-    is_under_attack = board.is_attacked_by(not square_color, square_number)
 
+    # Checks if user input is valid or no
+    if square_color == None:
+        print("Square is empty")
+    else: 
 
-    if is_under_attack == True:
-        print(f'{square} is attacked!! Watch out!!!!')
+        is_under_attack = board.is_attacked_by(not square_color, square_number)
 
-        attackers_answer = input("Do you want to know which pieces are attacking you? (y/n) ")
+        if is_under_attack == True:
+            print(f'{square} is attacked!! Watch out!!!!')
 
-        if attackers_answer == 'y':
-            print(attackers(square, board))
-         
-    else:
-        print(f'{square} is safe! :)')
+            attackers_answer = input("Do you want to know which pieces are attacking you? (y/n) \n")
+            
+            if attackers_answer == 'y':
+                print(attackers(square, board))
+            
+        else:
+            print(f'{square} is safe! :) \n')
 
 def attackers(square, board):
     """At a certain point a player might want to know opponent's pieces that can attack of a piece of his, 
@@ -341,9 +345,10 @@ def user_vs_bot():
  
     board = chess.Board()
 
-    first = input("Would you like to start? (y/n) ")
+    # first = input("Would you like to start? (y/n) ")
+    first = input("Choose your pieces (white or black) (w/b) ")
 
-    if first == 'y':
+    if first == 'w':
         player_no = 'Player'
     else:
         player_no = 'Bot'
@@ -354,7 +359,7 @@ def user_vs_bot():
 
         if player_no == 'Player':
 
-            print("If you want a hint on attacking input 'hint'.")
+            print("Would like to know who if you are under attack input 'hint'.")
 
             move = input(f'{player_no} move: ')
 
