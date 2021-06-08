@@ -5,6 +5,7 @@ import chess
 from bot import bot_move, checking, is_piece_under_attack
 import tkinter.messagebox
 from PIL import ImageTk,Image  
+from timer import Timer
 
 
 class GUI:
@@ -32,6 +33,9 @@ class GUI:
         self.player_color = "white"
         self.bot_color = "black"
         self.focus_piece = None
+        self.timer = None
+        self.start_timer = False
+        self.parent = None
         # ////////////////////////////
         # Adding Top Menu
         # self.menubar = tk.Menu(root)
@@ -56,6 +60,11 @@ class GUI:
     def new_game(self):
         # $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
         self.board = chess.Board()
+        if self.start_timer:
+            self.timer.frame.destroy()
+            self.timer = None
+            self.start_timer = False
+            self.parent = None
         # $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
         self.chessboard.show(chessboard.START_PATTERN)
         self.draw_board()
@@ -108,6 +117,11 @@ class GUI:
         if dest_piece is None or dest_piece.color != piece.color:
             try:
                 self.chessboard.shift(p1, p2)
+                # //////////////////
+                if self.start_timer:
+                    self.timer.frame.destroy()
+                    self.clicked_timer(self.parent)
+                # ////////////////////
             except chessboard.ChessError as error:
                 self.info_label["text"] = error.__class__.__name__
             else:
@@ -130,7 +144,6 @@ class GUI:
                 # ///////////////////////////
 
     def focus(self, pos):
-        
         try:
             piece = self.chessboard[pos]
         except:
@@ -210,13 +223,12 @@ class GUI:
         else :
             tkinter.messagebox.showinfo("Under Attack",f"{self.focus_piece} {massege} by : {result}")
 
-
+    def clicked_timer(self,parent):
+        self.parent = parent
+        self.timer = Timer()
+        self.timer.root = parent
+        self.timer.main()
     #//////////////////////////////////////////////////// 
-# //////////////////////////////
-def back_main():
-    game = chessboard.Board()
-    main(game)    
-#///////////////////////////////// 
 
 def main(chessboard):
 
@@ -245,9 +257,6 @@ def main(chessboard):
     def clicked_virual():
         pass
 
-    def clicked_timer():
-        pass
-
     def back():
         root.geometry('250x250')
         gui.clicked_restart()
@@ -267,14 +276,14 @@ def main(chessboard):
     def clicked_single():
         chessframe.grid()
         single_player_option_frame.grid()
-        root.geometry('800x600')
+        root.geometry('800x650')
         gui.play_mode = "single_player"
         left_frame.grid_remove()
 
     def clicked_multi():
         chessframe.grid()
         multi_player_option_frame.grid()
-        root.geometry('800x600')
+        root.geometry('800x650')
         gui.play_mode = "multi_player"
         left_frame.grid_remove()
     
@@ -302,7 +311,7 @@ def main(chessboard):
         ruls_window = Tk()  
         canvas = Canvas(ruls_window, width = 600, height = 600)  
         canvas.pack()  
-        byimg = ImageTk.PhotoImage(Image.open("pieces_image/z.jpg"))  
+        byimg = ImageTk.PhotoImage(Image.open("pieces_image\bwhite.png"))  
         canvas.create_image(0, 0, anchor=NW, image=byimg) 
         ruls_window.mainloop() 
 
@@ -325,23 +334,23 @@ def main(chessboard):
     btn_2.grid(column=0, row=2)
     # btn_3 = Button(single_player_option_frame, text="virual mouse", command=clicked_virual, bg="white", fg="red",width=20,height=3)
     # btn_3.grid(column=0, row=3)
-    text = tk.StringVar()
-    text.set("choose black")
+    text1 = tk.StringVar()
+    text1.set("choose black")
 
     def color():
-        if text.get() == "choose black":
+        if text1.get() == "choose black":
             gui.player_color = "black"
             gui.bot_color = "white"
-            text.set("choose white")
+            text1.set("choose white")
             gui.clicked_restart()
             gui.bot()
         else:
             gui.player_color = "white"
             gui.bot_color = "black"
-            text.set("choose black")
+            text1.set("choose black")
             gui.clicked_restart()
 
-    btn_5 = Button(single_player_option_frame, textvariable=text, command=color, bg="white", fg="red",width=20,height=3)
+    btn_5 = Button(single_player_option_frame, textvariable=text1, command=color, bg="white", fg="red",width=20,height=3)
     btn_5.grid(column=0, row=4)
     btn_4 = Button(single_player_option_frame, text="back", command=back, bg="white", fg="red",width=20,height=3)
     btn_4.grid(column=0, row=5)
@@ -352,14 +361,31 @@ def main(chessboard):
     lbl.grid(column=0, row=0)
     btn_1 = Button(multi_player_option_frame, text="draw", command=clicked_draw, bg="orange", fg="red",width=20,height=3)
     btn_1.grid(column=0, row=1)
-    btn_2 = Button(multi_player_option_frame, text="show timer", command=clicked_timer, bg="orange", fg="red",width=20,height=3)
+    text = tk.StringVar()
+    text.set("show timer")
+
+    def start_timer():
+        if text.get() == "show timer":
+            text.set("stop timer")
+            gui.start_timer = True
+            gui.clicked_timer(root)
+        else:
+            text.set("show timer")
+            gui.timer.frame.destroy()
+            gui.timer = None
+            gui.start_timer = False
+            gui.parent = None
+        # gui.start_timer = True
+        # gui.clicked_timer(root)
+
+    btn_2 = Button(multi_player_option_frame, textvariable=text, command=start_timer, bg="orange", fg="red",width=20,height=3)
     btn_2.grid(column=0, row=2)
     btn_3 = Button(multi_player_option_frame, text="pieces under attack", command=gui.clicked_attack, bg="pink", fg="red",width=20,height=3)
     btn_3.grid(column=0, row=3)
     # btn_4 = Button(multi_player_option_frame, text="virual mouse", command=clicked_virual, bg="white", fg="red",width=20,height=3)
     # btn_4.grid(column=0, row=4)
     btn_5 = Button(multi_player_option_frame, text="back", command=back, bg="white", fg="red",width=20,height=3)
-    btn_5.grid(column=0, row=5)
+    btn_5.grid(column=0, row=4)
 
     chessframe.grid_remove()
     single_player_option_frame.grid_remove()
