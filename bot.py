@@ -160,17 +160,17 @@ def bot_move(board,depth):
 
     return selectmove(depth)
 # &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
-# def checking(board):
-#     if board.is_checkmate():
-#         if board.turn:
-#             return "Black won"
-#         else:
-#             return "White won"
-#     if board.is_stalemate():
-#         return "Draw"
-#     if board.is_insufficient_material():
-#         return "Draw"
-#     return "Continue"
+def checking(board):
+    if board.is_checkmate():
+        if board.turn:
+            return "Black won"
+        else:
+            return "White won"
+    if board.is_stalemate():
+        return "Draw"
+    if board.is_insufficient_material():
+        return "Draw"
+    return "Continue"
 # &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
 # user vs bot
 # movehistory = []
