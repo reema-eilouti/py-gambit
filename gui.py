@@ -144,6 +144,10 @@ class GUI:
                 # ///////////////////////////
 
     def focus(self, pos):
+        # /////////////////////
+        if pos is not self.focus_piece:
+            self.focus_piece = None
+        # /////////////////////
         try:
             piece = self.chessboard[pos]
         except:
@@ -207,7 +211,6 @@ class GUI:
             self.posi2 = move[2].upper()
             self.posi2 += move[3] 
             self.counter += 1
-           
             self.square_clicked(None,self.posi1)
         elif self.counter == 1:
             self.counter += 1
@@ -217,11 +220,12 @@ class GUI:
         self.new_game()
         
     def clicked_attack(self):
-        massege,result = is_piece_under_attack(self.board,self.focus_piece.lower())
-        if not result :
-            tkinter.messagebox.showinfo("Under Attack",f"{self.focus_piece} {massege}")
-        else :
-            tkinter.messagebox.showinfo("Under Attack",f"{self.focus_piece} {massege} by : {result}")
+        if self.focus_piece:
+            massege,result = is_piece_under_attack(self.board,self.focus_piece.lower())
+            if not result :
+                tkinter.messagebox.showinfo("Under Attack",f"{self.focus_piece} {massege}")
+            else :
+                tkinter.messagebox.showinfo("Under Attack",f"{self.focus_piece} {massege} by : {result}")
 
     def clicked_timer(self,parent):
         self.parent = parent
@@ -288,34 +292,11 @@ def main(chessboard):
         left_frame.grid_remove()
     
     def clicked_rules():
-        # window = tk.Tk()
-        # window.title("Chess")
-        # window.geometry('250x250')
-
-        # load = Image.open("img1.jpg")
-        # render = ImageTk.PhotoImage(load)
-
-        # img = Label(window, image=render)
-        # img.image = render
-        # img.place(x=0, y=0)
-
-
-
-        # lbl = Label(window, text="", font=("Arial Bold", 35))
-        # lbl.grid(column=0, row=0)
-
-        # window.mainloop()
-
-
-
         ruls_window = Tk()  
         canvas = Canvas(ruls_window, width = 600, height = 600)  
         canvas.pack()  
         byimg = ImageTk.PhotoImage(Image.open("pieces_image\bwhite.png"))  
         canvas.create_image(0, 0, anchor=NW, image=byimg) 
-        ruls_window.mainloop() 
-
-        
 
     lbl = Label(game_option_frame, text="                                                                                 ")
     lbl.grid(column=0, row=0)
@@ -375,8 +356,6 @@ def main(chessboard):
             gui.timer = None
             gui.start_timer = False
             gui.parent = None
-        # gui.start_timer = True
-        # gui.clicked_timer(root)
 
     btn_2 = Button(multi_player_option_frame, textvariable=text, command=start_timer, bg="orange", fg="red",width=20,height=3)
     btn_2.grid(column=0, row=2)
@@ -389,7 +368,6 @@ def main(chessboard):
 
     chessframe.grid_remove()
     single_player_option_frame.grid_remove()
- 
     # &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
     root.mainloop()
     
