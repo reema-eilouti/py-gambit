@@ -2,8 +2,10 @@ import chessboard
 from tkinter import *
 import tkinter as tk
 import chess
-from bot import bot_move, checking
+from bot import bot_move, checking, is_piece_under_attack
 import tkinter.messagebox
+from PIL import ImageTk,Image  
+
 
 class GUI:
     pieces = {}
@@ -29,6 +31,7 @@ class GUI:
         self.root = root
         self.player_color = "white"
         self.bot_color = "black"
+        self.focus_piece = None
         # ////////////////////////////
         # Adding Top Menu
         # self.menubar = tk.Menu(root)
@@ -67,6 +70,9 @@ class GUI:
         pos = posi or self.chessboard.alpha_notation((selected_row, selected_column))
         try:
             piece = self.chessboard[pos]
+            # &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+            self.focus_piece = pos
+            # &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
         except:
             pass
         if self.selected_piece:
@@ -124,6 +130,7 @@ class GUI:
                 # ///////////////////////////
 
     def focus(self, pos):
+        
         try:
             piece = self.chessboard[pos]
         except:
@@ -187,6 +194,7 @@ class GUI:
             self.posi2 = move[2].upper()
             self.posi2 += move[3] 
             self.counter += 1
+           
             self.square_clicked(None,self.posi1)
         elif self.counter == 1:
             self.counter += 1
@@ -194,9 +202,14 @@ class GUI:
 
     def clicked_restart(self):
         self.new_game()
-
+        
     def clicked_attack(self):
-        pass
+        massege,result = is_piece_under_attack(self.board,self.focus_piece.lower())
+        if not result :
+            tkinter.messagebox.showinfo("Under Attack",f"{self.focus_piece} {massege}")
+        else :
+            tkinter.messagebox.showinfo("Under Attack",f"{self.focus_piece} {massege} by : {result}")
+
 
     #//////////////////////////////////////////////////// 
 # //////////////////////////////
@@ -266,7 +279,34 @@ def main(chessboard):
         left_frame.grid_remove()
     
     def clicked_rules():
-        pass
+        # window = tk.Tk()
+        # window.title("Chess")
+        # window.geometry('250x250')
+
+        # load = Image.open("img1.jpg")
+        # render = ImageTk.PhotoImage(load)
+
+        # img = Label(window, image=render)
+        # img.image = render
+        # img.place(x=0, y=0)
+
+
+
+        # lbl = Label(window, text="", font=("Arial Bold", 35))
+        # lbl.grid(column=0, row=0)
+
+        # window.mainloop()
+
+
+
+        ruls_window = Tk()  
+        canvas = Canvas(ruls_window, width = 600, height = 600)  
+        canvas.pack()  
+        byimg = ImageTk.PhotoImage(Image.open("pieces_image/z.jpg"))  
+        canvas.create_image(0, 0, anchor=NW, image=byimg) 
+        ruls_window.mainloop() 
+
+        
 
     lbl = Label(game_option_frame, text="                                                                                 ")
     lbl.grid(column=0, row=0)

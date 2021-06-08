@@ -1,3 +1,4 @@
+import re
 import chess
 # import chess.svg
 import chess.polyglot
@@ -172,6 +173,57 @@ def checking(board):
         return "Draw"
     return "Continue"
 # &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+def is_piece_under_attack(board,square):
+    """At a certain point player might want to know a piece of his is under attack by oppenent, 
+    the user shall enter square name, then function would get the piece index and the color piece, 
+    uses built-in method (is_under_attack) to check if any of his pieces is in danger and returns a boolean"""
+
+    square_number = chess.SQUARE_NAMES.index(square)
+  
+    square_color = board.color_at(square_number)
+   
+    is_under_attack = board.is_attacked_by(not square_color, square_number)
+
+    result =[]
+    massege = ''
+    if is_under_attack == True:
+        massege = 'is attacked'
+        att = attackers(square, board).__str__()
+
+        arr = []
+        for i in att:
+            if i == '1' or i =='.':
+                arr.append(i)
+    
+        counter = 1
+        
+        for i in arr :
+            col = ['H','A','B','C','D','E','F','G']
+            if i =='1':
+                column = col[counter % 8]
+                row = 8-int(counter/8)
+                attackers_piece = str(column)+str(row)
+                result.append(attackers_piece)
+            counter += 1
+
+    else:
+        massege = 'is safe'
+    return massege,result
+
+def attackers(square, board):
+    """At a certain point a player might want to know opponent's pieces that can attack of a piece of his, 
+    the user shall enter square name, then function would get the piece index and the color piece, 
+    uses built-in method (attackers) and returns a sqaure list"""
+
+    square_number = chess.SQUARE_NAMES.index(square)
+
+    square_color = board.color_at(square_number)
+
+    attackers_list = board.attackers(not square_color, square_number)
+    
+    return attackers_list
+# &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+
 # user vs bot
 # movehistory = []
 # board = chess.Board()
