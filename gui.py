@@ -8,6 +8,11 @@ from PIL import ImageTk,Image
 from timer import Timer
 
 
+button_bg = '#A66D4F'
+button_font_color = 'black'
+button_font_size = 15
+
+
 class GUI:
     pieces = {}
     selected_piece = None
@@ -245,14 +250,14 @@ def main(chessboard):
     main_frame.grid(row=0, column=0, sticky="nswe")
     chessframe = Frame(main_frame)
     chessframe.grid(row=0, column=0, sticky="nswe")
-    left_frame = Frame(main_frame,background="bisque")
+    left_frame = Frame(main_frame)
     left_frame.grid(row=0, column=1, sticky="nswe")
     game_option_frame = Frame(left_frame)
     game_option_frame.pack_propagate(0)
     game_option_frame.pack(side='top', padx=0, pady=0)
-    single_player_option_frame = Frame(main_frame,background="bisque")
+    single_player_option_frame = Frame(main_frame)
     single_player_option_frame.grid(row=0, column=2, sticky="nswe")
-    multi_player_option_frame = Frame(main_frame,background="bisque")
+    multi_player_option_frame = Frame(main_frame)
     multi_player_option_frame.grid(row=0, column=3, sticky="nswe")
     gui = GUI(chessframe, chessboard,board,root)
     gui.draw_board()
@@ -292,26 +297,53 @@ def main(chessboard):
         left_frame.grid_remove()
     
     def clicked_rules():
-        ruls_window = Tk()  
-        canvas = Canvas(ruls_window, width = 600, height = 600)  
-        canvas.pack()  
-        byimg = ImageTk.PhotoImage(Image.open("pieces_image\bwhite.png"))  
-        canvas.create_image(0, 0, anchor=NW, image=byimg) 
+        back_ground_color = 'gray'
+        text_color_1 = 'black'
+        text_color_2 = 'white'
+        font_size = 15
+        window = tk.Tk()
+        window.title("Chess")
+        window.geometry('910x300')
+        window.configure(bg=back_ground_color)
+
+
+        lbl = Label(window,font=("Arial Bold", 30),bg=back_ground_color, fg=text_color_2, anchor="e", justify=LEFT, text="chess Rules")
+        lbl.grid(column=0, row=0)
+
+        # -----------------------------
+        lbl = Label(window,font=("Antique Olive", font_size), fg=text_color_1,bg=back_ground_color, text="King can move exactly one square horizontally, vertically, or diagonally. \n At most once in every game, each king is allowed to make a special move, known as castling.")
+        lbl.grid(column=0, row=1)
+
+        lbl = Label(window,font=("Antique Olive", font_size), fg=text_color_2,bg=back_ground_color, text="Queen can move any number of vacant squares diagonally, horizontally, or vertically.")
+        lbl.grid(column=0, row=2)
+
+        lbl = Label(window,font=("Antique Olive", font_size), fg=text_color_1,bg=back_ground_color, text="Rook can move any number of vacant squares vertically or horizontally. It also is moved while castling.")
+        lbl.grid(column=0, row=3)
+
+        lbl = Label(window,font=("Antique Olive", font_size), fg=text_color_2,bg=back_ground_color, text="Bishop can move any number of vacant squares in any diagonal direction.")
+        lbl.grid(column=0, row=4)
+
+        lbl = Label(window,font=("Antique Olive", font_size), fg=text_color_1,bg=back_ground_color, text="Knight can move one square along any rank or file and then at an angle. The knight´s movement \n can also be viewed as an “L” or “7″ laid out at any horizontal or vertical angle.")
+        lbl.grid(column=0, row=5)
+
+        lbl = Label(window,font=("Antique Olive", font_size), fg=text_color_2,bg=back_ground_color, text="Pawns can move forward one square, if that square is unoccupied , They can capture an enemy piece \n on either of the two spaces adjacent to the space in front of them")
+        lbl.grid(column=0, row=6)
+        # -----------------------------
 
     lbl = Label(game_option_frame, text="                                                                                 ")
     lbl.grid(column=0, row=0)
-    btn = Button(game_option_frame, text="One player", command=clicked_single, bg="orange", fg="red",width=20,height=3)
+    btn = Button(game_option_frame,font=("Antique Olive", button_font_size), text="One player", command=clicked_single, bg = button_bg, fg=button_font_color,width=15,height=1)
     btn.grid(column=0, row=1)
-    btn_2 = Button(game_option_frame, text="Multiplayer", command=clicked_multi, bg="pink", fg="red",width=20,height=3)
+    btn_2 = Button(game_option_frame, text="Multiplayer", command=clicked_multi, bg = button_bg,  fg=button_font_color,width=20,height=3)
     btn_2.grid(column=0, row=2)
-    btn_3 = Button(game_option_frame, text="Game rules", command=clicked_rules, bg="white", fg="red",width=20,height=3)
+    btn_3 = Button(game_option_frame, text="Game rules", command=clicked_rules, bg = button_bg,  fg=button_font_color,width=20,height=3)
     btn_3.grid(column=0, row=3)
 
     lbl = Label(single_player_option_frame, text="                                                                                 ")
     lbl.grid(column=0, row=0)
-    btn = Button(single_player_option_frame, text="Restart game", command=gui.clicked_restart, bg="orange", fg="red",width=20,height=3)
+    btn = Button(single_player_option_frame, text="Restart game", command=gui.clicked_restart, bg=button_bg,  fg=button_font_color,width=20,height=3)
     btn.grid(column=0, row=1)
-    btn_2 = Button(single_player_option_frame, text="Pieces under attack", command=gui.clicked_attack, bg="pink", fg="red",width=20,height=3)
+    btn_2 = Button(single_player_option_frame, text="Pieces under attack", command=gui.clicked_attack, bg=button_bg,  fg=button_font_color,width=20,height=3)
     btn_2.grid(column=0, row=2)
     # btn_3 = Button(single_player_option_frame, text="virual mouse", command=clicked_virual, bg="white", fg="red",width=20,height=3)
     # btn_3.grid(column=0, row=3)
@@ -331,16 +363,16 @@ def main(chessboard):
             text1.set("choose black")
             gui.clicked_restart()
 
-    btn_5 = Button(single_player_option_frame, textvariable=text1, command=color, bg="white", fg="red",width=20,height=3)
+    btn_5 = Button(single_player_option_frame, textvariable=text1, command=color, bg=button_bg, fg=button_font_color,width=20,height=3)
     btn_5.grid(column=0, row=4)
-    btn_4 = Button(single_player_option_frame, text="Back", command=back, bg="white", fg="red",width=20,height=3)
+    btn_4 = Button(single_player_option_frame, text="Back", command=back, bg=button_bg,  fg=button_font_color ,width=20,height=3)
     btn_4.grid(column=0, row=5)
     # btn_6 = Button(single_player_option_frame, text="choose white", command=color_white, bg="white", fg="red",width=20,height=3)
     # btn_6.grid(column=0, row=6)
 
     lbl = Label(multi_player_option_frame, text="                                                                                 ")
     lbl.grid(column=0, row=0)
-    btn_1 = Button(multi_player_option_frame, text="Forfeit ", command=clicked_draw, bg="orange", fg="red",width=20,height=3)
+    btn_1 = Button(multi_player_option_frame, text="Forfeit ", command=clicked_draw, bg=button_bg,  fg=button_font_color,width=20,height=3)
     btn_1.grid(column=0, row=1)
     text = tk.StringVar()
     text.set("Show timer")
@@ -357,13 +389,13 @@ def main(chessboard):
             gui.start_timer = False
             gui.parent = None
 
-    btn_2 = Button(multi_player_option_frame, textvariable=text, command=start_timer, bg="orange", fg="red",width=20,height=3)
+    btn_2 = Button(multi_player_option_frame, textvariable=text, command=start_timer, bg = button_bg,  fg=button_font_color,width=20,height=3)
     btn_2.grid(column=0, row=2)
-    btn_3 = Button(multi_player_option_frame, text="Pieces under attack", command=gui.clicked_attack, bg="pink", fg="red",width=20,height=3)
+    btn_3 = Button(multi_player_option_frame, text="Pieces under attack", command=gui.clicked_attack, bg = button_bg,  fg=button_font_color,width=20,height=3)
     btn_3.grid(column=0, row=3)
     # btn_4 = Button(multi_player_option_frame, text="virual mouse", command=clicked_virual, bg="white", fg="red",width=20,height=3)
     # btn_4.grid(column=0, row=4)
-    btn_5 = Button(multi_player_option_frame, text="Back", command=back, bg="white", fg="red",width=20,height=3)
+    btn_5 = Button(multi_player_option_frame, text="Back", command=back, bg = button_bg ,  fg=button_font_color,width=20,height=3)
     btn_5.grid(column=0, row=4)
 
     chessframe.grid_remove()
