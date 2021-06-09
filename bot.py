@@ -2,6 +2,7 @@ import re
 import chess
 # import chess.svg
 import chess.polyglot
+import time
 # ************************************************
 pawntable = [
  0,  0,  0,  0,  0,  0,  0,  0,

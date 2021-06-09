@@ -12,7 +12,6 @@ class Timer():
         self.timer_label = None
 
     def clock(self):
-        print(self.second)
         self.second += 1
         if self.second == 60:
             self.minute += 1

@@ -132,6 +132,22 @@ def evaluate_board(board):
     else:
         return -eval
 
+# this function to add the numbers and letters around the board and it prints the board as well 
+def print_board(board):
+    string = str(board)
+    string_list = string.split("\n")
+    counter = 1
+    print("\na b c d e f g h")
+    print("---------------")
+    for array in string_list:
+        array += " |" + str(9- counter)
+        string_list[counter - 1] = array
+        counter += 1
+        print(array)
+    print("---------------")
+    print("a b c d e f g h \n")
+    
+    
 
 def alphabeta(alpha, beta, depthleft, board):
 
@@ -233,12 +249,12 @@ def game_state(check, board):
     """A function to check whether the game has stopping condition or not."""
 
     if check == "Continue":
-
-        print(board, '\n')
+        
+        print_board(board)
         
     elif check != "Continue":
-
-        print(board, '\n')
+        
+        print_board(board)
         print(checking(board))
         print("Game Over.")       
         
@@ -404,7 +420,8 @@ def user_vs_bot():
 
             print("Bot move: ", bot_move)
 
-            print(board, '\n')
+            
+            print_board(board)
 
             player_no = "Player"
 
@@ -472,4 +489,4 @@ def game():
     if mode == '2':
         user_vs_user()
 
-game() 
+game()
