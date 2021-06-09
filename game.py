@@ -263,7 +263,7 @@ def is_piece_under_attack(board):
     uses built-in method (is_under_attack) to check if any of his pieces is in danger and returns a boolean"""
     
   
-    square = input('Enter square to test: ').lower()
+    square = input('Enter square to check: ').lower()
     
     square_number = chess.SQUARE_NAMES.index(square)
   

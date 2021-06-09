@@ -274,7 +274,7 @@ def main(chessboard):
             winner = "black"
         else:
             winner = "white"
-        tkinter.messagebox.showinfo("winner",f"the winner is {winner}")
+        tkinter.messagebox.showinfo("winner",f"The winner is {winner}")
         gui.clicked_restart()
     
     def clicked_single():
@@ -300,18 +300,18 @@ def main(chessboard):
 
     lbl = Label(game_option_frame, text="                                                                                 ")
     lbl.grid(column=0, row=0)
-    btn = Button(game_option_frame, text="one player", command=clicked_single, bg="orange", fg="red",width=20,height=3)
+    btn = Button(game_option_frame, text="One player", command=clicked_single, bg="orange", fg="red",width=20,height=3)
     btn.grid(column=0, row=1)
-    btn_2 = Button(game_option_frame, text="multi player", command=clicked_multi, bg="pink", fg="red",width=20,height=3)
+    btn_2 = Button(game_option_frame, text="Multiplayer", command=clicked_multi, bg="pink", fg="red",width=20,height=3)
     btn_2.grid(column=0, row=2)
-    btn_3 = Button(game_option_frame, text="game rules", command=clicked_rules, bg="white", fg="red",width=20,height=3)
+    btn_3 = Button(game_option_frame, text="Game rules", command=clicked_rules, bg="white", fg="red",width=20,height=3)
     btn_3.grid(column=0, row=3)
 
     lbl = Label(single_player_option_frame, text="                                                                                 ")
     lbl.grid(column=0, row=0)
-    btn = Button(single_player_option_frame, text="restart game", command=gui.clicked_restart, bg="orange", fg="red",width=20,height=3)
+    btn = Button(single_player_option_frame, text="Restart game", command=gui.clicked_restart, bg="orange", fg="red",width=20,height=3)
     btn.grid(column=0, row=1)
-    btn_2 = Button(single_player_option_frame, text="pieces under attack", command=gui.clicked_attack, bg="pink", fg="red",width=20,height=3)
+    btn_2 = Button(single_player_option_frame, text="Pieces under attack", command=gui.clicked_attack, bg="pink", fg="red",width=20,height=3)
     btn_2.grid(column=0, row=2)
     # btn_3 = Button(single_player_option_frame, text="virual mouse", command=clicked_virual, bg="white", fg="red",width=20,height=3)
     # btn_3.grid(column=0, row=3)
@@ -333,25 +333,25 @@ def main(chessboard):
 
     btn_5 = Button(single_player_option_frame, textvariable=text1, command=color, bg="white", fg="red",width=20,height=3)
     btn_5.grid(column=0, row=4)
-    btn_4 = Button(single_player_option_frame, text="back", command=back, bg="white", fg="red",width=20,height=3)
+    btn_4 = Button(single_player_option_frame, text="Back", command=back, bg="white", fg="red",width=20,height=3)
     btn_4.grid(column=0, row=5)
     # btn_6 = Button(single_player_option_frame, text="choose white", command=color_white, bg="white", fg="red",width=20,height=3)
     # btn_6.grid(column=0, row=6)
 
     lbl = Label(multi_player_option_frame, text="                                                                                 ")
     lbl.grid(column=0, row=0)
-    btn_1 = Button(multi_player_option_frame, text="draw", command=clicked_draw, bg="orange", fg="red",width=20,height=3)
+    btn_1 = Button(multi_player_option_frame, text="Forfeit ", command=clicked_draw, bg="orange", fg="red",width=20,height=3)
     btn_1.grid(column=0, row=1)
     text = tk.StringVar()
-    text.set("show timer")
+    text.set("Show timer")
 
     def start_timer():
-        if text.get() == "show timer":
-            text.set("stop timer")
+        if text.get() == "Show timer":
+            text.set("Stop timer")
             gui.start_timer = True
             gui.clicked_timer(root)
         else:
-            text.set("show timer")
+            text.set("Show timer")
             gui.timer.frame.destroy()
             gui.timer = None
             gui.start_timer = False
@@ -359,11 +359,11 @@ def main(chessboard):
 
     btn_2 = Button(multi_player_option_frame, textvariable=text, command=start_timer, bg="orange", fg="red",width=20,height=3)
     btn_2.grid(column=0, row=2)
-    btn_3 = Button(multi_player_option_frame, text="pieces under attack", command=gui.clicked_attack, bg="pink", fg="red",width=20,height=3)
+    btn_3 = Button(multi_player_option_frame, text="Pieces under attack", command=gui.clicked_attack, bg="pink", fg="red",width=20,height=3)
     btn_3.grid(column=0, row=3)
     # btn_4 = Button(multi_player_option_frame, text="virual mouse", command=clicked_virual, bg="white", fg="red",width=20,height=3)
     # btn_4.grid(column=0, row=4)
-    btn_5 = Button(multi_player_option_frame, text="back", command=back, bg="white", fg="red",width=20,height=3)
+    btn_5 = Button(multi_player_option_frame, text="Back", command=back, bg="white", fg="red",width=20,height=3)
     btn_5.grid(column=0, row=4)
 
     chessframe.grid_remove()
