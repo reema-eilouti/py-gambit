@@ -27,19 +27,19 @@ test
 ## User Stories
 
 **Solo Mode**
-1. As a player, I want solo play mode, so that I can play that game when no one is around
+1. As a player, I want solo play mode, so that I can play that game when no one is around. 
     - Feature Tasks:
         - Player can choose what color to play with.
         - Player can restart the game if wanted.
-        - Player can choose the bot difficulty.
+        
     - Acceptance Tests:
         - Ensure the color the player choose is correct.
-        - Ensure the game is started when the player choose to restart the game.
-        - Ensure the difficulty the player choose is correct.
+        - Ensure the game is re-started when the player choose to restart the game.
+      
 
 **Multiplayer Mode**
 
-2. As a player, I want multiplayer mode, so that I can play with others
+2. As a player, I want a multiplayer mode, so that I can play with others.
     - Feature Tasks:
         - Players can choose to set a timer.
         - Players can choose to end the game with a draw or surrender.
@@ -60,21 +60,20 @@ test
 
 **Under Attack**
 
-4. As a player, I want to know what pieces of mine under attack, so that I can move the important piece of them and avoid a direct attack from the other player
+4. As a player, I want a hint, upon request, to help know if a piece of mine is under attack or know its attacker pieces, so that I can move piece and avoid opponent's potential attacks.
     - Feature Tasks:
-        - Player/s can require to highlight all pieces of his/her under attack
-        - Player/s can require to see the highlighted pieces moves to escape
+        - Player/s can require to be notified of a piece of his/her is under attack.
+        - Player/s can require to know attacker pieces of a piece of his/her.
     - Acceptance Tests:
-        - Ensure the highlighted pieces are under attack for each player when they are required
-        - Ensure the escape moves for the highlighted pieces are shown in the screen correctly
+        - Ensure that attackers, if exit, are shown for players when it is requested
 
 **Chess Pieces**
 
-5. As a player, I want to see chess pieces moves, so that I can remember what move I can do with a specific piece 
+5. As a player, I want to be reminded with the possible valid moves, when I attempt an invalid move. 
     - Feature Tasks:
-        - Player/s can require to see the all pieces moves
+        - Player/s is notified when he/she attempts an illegal move and gets all legal moves, at the second failed attempt.
     - Acceptance Tests:
-        - Ensure the moves list has correct moves and is shown clear for players when it is required
+        - Ensure that user get a warning message, and a list of the legal moves is shown for player when entering an illelgal move.
 
 
 ## Wireframe
